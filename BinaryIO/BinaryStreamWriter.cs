@@ -20,6 +20,14 @@ namespace BIO
 			_output = output;
 		}
 		/// <summary>
+		/// Creates a new instance of the writer over the specified file
+		/// </summary>
+		/// <param name="filename">The filename to write to</param>
+		public BinaryStreamWriter(string filename)
+		{
+			_output = File.OpenWrite(filename);
+		}
+		/// <summary>
 		/// Writes a byte to the output stream
 		/// </summary>
 		/// <param name="data">The byte to write</param>
