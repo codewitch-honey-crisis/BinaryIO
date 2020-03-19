@@ -38,10 +38,7 @@ namespace BIO
 		{
 			Close();
 		}
-		/// <summary>
-		/// Indicates whether or not the platform uses a little-endian byte ordering scheme.
-		/// </summary>
-		public static bool IsLittleEndian { get { return BitConverter.IsLittleEndian; } }
+		
 		/// <summary>
 		/// Reads a byte from the stream
 		/// </summary>
