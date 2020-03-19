@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BinaryIO", "BinaryIO\BinaryIO.csproj", "{D34F8BFF-F41A-4379-9F7A-D72BC23E1AAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryIODemo", "BinaryIODemo\BinaryIODemo.csproj", "{4290976B-DD72-4E30-8943-30EFC2D34FC4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D34F8BFF-F41A-4379-9F7A-D72BC23E1AAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D34F8BFF-F41A-4379-9F7A-D72BC23E1AAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D34F8BFF-F41A-4379-9F7A-D72BC23E1AAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D34F8BFF-F41A-4379-9F7A-D72BC23E1AAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4290976B-DD72-4E30-8943-30EFC2D34FC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4290976B-DD72-4E30-8943-30EFC2D34FC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4290976B-DD72-4E30-8943-30EFC2D34FC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4290976B-DD72-4E30-8943-30EFC2D34FC4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C8D858E-B21A-4992-9ABD-0EE4C155BF50}
+	EndGlobalSection
+EndGlobal
