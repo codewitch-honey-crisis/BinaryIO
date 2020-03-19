@@ -334,7 +334,5 @@ namespace BIO
 			var ba = ReadBytes(byteLength);
 			return encoding.GetString(ba);
 		}
-
 	}
-
 }
