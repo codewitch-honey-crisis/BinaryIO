@@ -20,14 +20,27 @@ namespace BinaryIODemo
 				var ba = br.ReadBytes(len);
 				// create a new binary reader over ba
 				// not necessary, but for illustrative purposes:
+				int trackCount;
 				using (var br2 = new BinaryCollectionReader(ba))
 				{
 					// read the file type as a big-endian 16-bit short
 					Console.WriteLine("MIDI File Type: " + br2.ReadInt16BE().ToString());
 					// read the track count as a big-endian 16-bit short
-					Console.WriteLine("MIDI Track Count: " + br2.ReadInt16BE().ToString());
+					Console.WriteLine("MIDI Track Count: " + (trackCount=br2.ReadInt16BE()).ToString());
 					// read the timebase as a big-endian 16-bit short
 					Console.WriteLine("MIDI TimeBase: " + br2.ReadInt16BE().ToString());
+				}
+				var tracksRead = 0;
+				while(tracksRead<trackCount)
+				{
+					var name = br.ReadFixedString(4, Encoding.ASCII);
+					len = br.ReadInt32BE();
+					var data = br.ReadBytes(len);
+					if("MTrk"==name)
+					{
+						Console.WriteLine("Track #" + tracksRead.ToString() + " is " + len + " bytes.");
+						++tracksRead;
+					}
 				}
 			}	
 		}
