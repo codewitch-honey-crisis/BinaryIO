@@ -35,24 +35,5 @@ namespace BIO
 		{
 			_output.Add(data);
 		}
-		/// <summary>
-		/// Writes a series of bytes to the output collection
-		/// </summary>
-		/// <param name="buffer">The buffer containing the source bytes</param>
-		/// <param name="startIndex">The start index into the buffer at which writing begins</param>
-		/// <param name="length">The length of the bytes to write</param>
-		public override void Write(byte[] buffer, int startIndex, int length)
-		{
-			if (null == buffer)
-				throw new ArgumentNullException("buffer");
-			if (0 > startIndex || buffer.Length <= startIndex)
-				throw new ArgumentOutOfRangeException("startIndex");
-			if(0>length || buffer.Length<length)
-				throw new ArgumentOutOfRangeException("length");
-			if (buffer.Length < (startIndex + length))
-				throw new ArgumentOutOfRangeException();
-			for (int ic = startIndex + length, i = startIndex; i < ic; ++i)
-				Write(buffer[i]);
-		}
 	}
 }

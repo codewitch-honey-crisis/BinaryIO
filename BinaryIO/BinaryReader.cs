@@ -28,7 +28,28 @@ namespace BIO
 		/// <param name="startIndex">The starting index within the buffer to fill</param>
 		/// <param name="length">The length of the data to read</param>
 		/// <returns>The number of bytes read</returns>
-		public abstract int Read(byte[] buffer, int startIndex, int length);
+		public virtual int Read(byte[] buffer, int startIndex, int length)
+		{
+			if (null == buffer)
+				throw new ArgumentNullException("buffer");
+			if (0 > startIndex || buffer.Length <= startIndex)
+				throw new ArgumentOutOfRangeException("startIndex");
+			if (0 > length || buffer.Length < length)
+				throw new ArgumentOutOfRangeException("length");
+			if (buffer.Length < startIndex + length)
+				throw new ArgumentOutOfRangeException();
+			var result = 0;
+			for (int ic = startIndex + length, i = startIndex; i < ic; ++i)
+			{
+				var b = Read();
+				if (0 > b)
+					break;
+				buffer[i] = unchecked((byte)b);
+				++Position;
+				++result;
+			}
+			return result;
+		}
 		/// <summary>
 		/// Closes the reader, releasing any resources held
 		/// </summary>
