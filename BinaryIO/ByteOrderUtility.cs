@@ -87,6 +87,20 @@ namespace BIO
 			map.UInt64 = Swap(map.UInt64);
 			return map.Double;
 		}
+		// TODO: the following is untested
+		/// <summary>
+		/// Swaps byte order
+		/// </summary>
+		/// <param name="x">The decimal</param>
+		/// <returns>A decimal with swapped byte order</returns>
+		public static decimal Swap(decimal x)
+		{
+			var map = new _UInt64UInt64DecimalMap() { Decimal = x };
+			var tmp = Swap(map.UInt64);
+			map.UInt64 = Swap(map.UInt642);
+			map.UInt642 = tmp;
+			return map.Decimal;
+		}
 		[StructLayout(LayoutKind.Explicit)]
 		private struct _UInt32SingleMap
 		{
@@ -99,6 +113,14 @@ namespace BIO
 		{
 			[FieldOffset(0)] public ulong UInt64;
 			[FieldOffset(0)] public double Double;
+		}
+
+		[StructLayout(LayoutKind.Explicit)]
+		private struct _UInt64UInt64DecimalMap
+		{
+			[FieldOffset(0)] public ulong UInt64;
+			[FieldOffset(8)] public ulong UInt642;
+			[FieldOffset(0)] public decimal Decimal;
 		}
 	}
 }
